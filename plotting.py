@@ -25,7 +25,8 @@ def visualize_elevo(
         colors = ["dodgerblue", "gold", "firebrick"],
         sun_rot = 26.24, # days
         v = 450, # km/s    
-        r0 = 695510 # km
+        r0 = 695510, # km
+        legend = False,
         ):
 
     cme_indices = np.where(
@@ -131,6 +132,8 @@ def visualize_elevo(
     omega  = 2 * np.pi / (sun_rot * 60 * 60 * 24) # rad/s
     r = v/omega * theta + r0 * 7
 
+    if legend:
+        ax.legend(loc='upper right', fontsize=fsize)
 
     fig.tight_layout()
 
